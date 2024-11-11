@@ -44,7 +44,9 @@ The data is in csv format and the data is loaded as a Dataframe using pandas lib
 The dataset consist of 85 columns and 123117 rows. It consist of 3 categorical columns and the remaining numerical columns.
 Null values are not present in any of the columns but in the service column there is a class named '-' which might or mightnot indicate an unknown value.
 The categorical columns are heavily biased.
+
 ![image](https://github.com/user-attachments/assets/f9cc11e3-bf04-444c-b746-0f3bdee3a19d)
+
 
 #<a name="cleaning"></a>**DATA CLEANING**:
 An index column is repeated which is removed in cleaning phase itself.
@@ -55,40 +57,63 @@ Two columns are indication of id of devices used so they are removed. They doesn
 
 #<a name="outhand"></a> **OUTLIER HANDLING**:
 Numerical data of the dataset consist of huge outlier presence.
+
 ![image](https://github.com/user-attachments/assets/891db72d-948c-44bd-9737-0bc3f07ecf2c)
+
 The standard deviations and range also seem to vary with high values.
+
 ![image](https://github.com/user-attachments/assets/f95e168c-6bc4-437b-9b93-e45e0f735c91)
+
 ![image](https://github.com/user-attachments/assets/8479d22f-e8c4-4ef6-bb0f-e76ca160c45a)
+
 The numerical data is then made to undergo InterQuartileRange normalisation which decreased the outlier presence.
+
 ![image](https://github.com/user-attachments/assets/3c8d9f0b-5c36-4979-8329-07ab87b3602f)
+
 To further reduce the outliers, the numerical data is made to undergo logarithmic transformation.
+
 ![image](https://github.com/user-attachments/assets/28c76821-776f-465c-8c54-505bd03f3c56)
+
 
 #<a name="encoding"></a>**DATA ENCODING**:
 There are two categorical columns which are encoded using one hot encoder.
 
 #<a name="datsam"></a>**DATA SAMPLING**:
 The target class is heavily biased. The most dominant class has 90089 entries and least occurring class has 28 entries.
+
 ![image](https://github.com/user-attachments/assets/12eec2ba-5cfa-4755-ae19-85bb118618bf)
+
 Five classes having low presence is removed from the data and the entries in the most dominant class is reduced to 10000 values by random selection.
 The remaining classes are then oversampled to reach 10000 entries each.
+
 ![image](https://github.com/user-attachments/assets/9eee5958-1556-4232-b152-4ee5d5a21e56)
+
 
 #<a name="feateng"></a>**FEATURE ENGINEERING**:
 The encoded dataset is then checked for collinearity and was consisting of highly collinear features. Some of them are plotted.
+
 ![image](https://github.com/user-attachments/assets/6c651156-df54-4262-80ad-0c1800ad669c)
+
 The correlation matrix also shows collinearity.
+
 ![image](https://github.com/user-attachments/assets/76f6ce81-83b4-40c3-89c6-49d8a63dfb4d)
+
 Due to the higher collinearity, dimensional reduction is carried out and the dimensions are chosen in such a way that 99.99% of cumulative explained variance ratio is achieved.
+
 ![image](https://github.com/user-attachments/assets/3d7cc53d-9e6b-47b4-9118-8c2a5af9f167)
+
 The dimensions are fixed to be of 12 numbers and collinearity is again checked using correlation matrix.
+
 ![image](https://github.com/user-attachments/assets/b5e5997c-c21a-4858-8202-db96eb5b108c)
+
 
 #<a name="modbuild"></a>**MODEL BUILDING**:
 Five models are built with different algorithms which are Gaussian Naive Bayes, Logistic Regression, KNeighbors Classifier, Random Forest Classifier, Support Vector Classifier.
 Initially system defined parameters are used to train the models.
 Then hyperparameter tuning is carried out using grid search and models are built using new parameters.
+
 ![image](https://github.com/user-attachments/assets/81bfcd3b-da9c-4e5e-9c93-8e777eb31e02)
+
 The hyperparameters seem to improve many metrics but the precision seem to be reduced after this tuning.
 Random forest Classifier seem to be having nearly perfect training vs testing accuracy score which highlights the good fitting. Moreover this model shows best accuracy score and best precision too.
 Random Forest Classifier is selected as the preferred model for the problem.
@@ -99,7 +124,9 @@ Numerical columns--->IQR normalisation--->logarithmic transformation--->to form 
 Categorical columns--->One hot encoding--->to form new dataset
 New dataset--->PCA transformation--->Standard Scaling--->Random Forest Classifier
 The pipeline is trained with data and prediction is checked. Data after sampling process is converted to the original dataset form by reversing the encoding and reversing the logarthmic transformation.
+
 ![download](https://github.com/user-attachments/assets/8e9ff421-70bc-4969-9578-9e53b0481e63)
+
 
 #<a name="save"></a>**SAVING THE MODEL**
 The pipeline model is saved to a pickle file.
