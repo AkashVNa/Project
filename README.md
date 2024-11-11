@@ -128,12 +128,11 @@ Five models are built with different algorithms which are Gaussian Naive Bayes, 
 Initially system defined parameters are used to train the models.
 Then hyperparameter tuning is carried out using grid search and models are built using new parameters.
 
-![download](https://github.com/user-attachments/assets/c26181a3-9757-48d3-9571-6ae8f71fe50d)
-![download](https://github.com/user-attachments/assets/d62da916-cb67-40de-9a61-9a1f5013d4f6)
-![download](https://github.com/user-attachments/assets/ddebe468-2774-46ce-9354-f162888b2ced)
-![download](https://github.com/user-attachments/assets/eb2d528e-5fc7-42d3-bbc4-ed8846038dc6)
-![download](https://github.com/user-attachments/assets/4c7e8f76-a097-4b93-96d4-712661ab32d2)
-
+![download](https://github.com/user-attachments/assets/6e080f06-f945-4b2b-b61a-15a0ea9315f6)
+![download](https://github.com/user-attachments/assets/bff02a5d-d7ca-49f2-abee-65426a3c82cf)
+![download](https://github.com/user-attachments/assets/37bc41b8-51d9-42d6-99db-11723055a241)
+![download](https://github.com/user-attachments/assets/c794b04e-8730-4560-9098-f2aeabbbf914)
+![download](https://github.com/user-attachments/assets/f17d1a22-ffce-423c-a334-9c3e6ea60d67)
 
 
 The hyperparameters seem to improve many metrics but the precision seem to be reduced after this tuning.
@@ -147,7 +146,7 @@ Categorical columns--->One hot encoding--->to form new dataset
 New dataset--->PCA transformation--->Standard Scaling--->Random Forest Classifier
 The pipeline is trained with data and prediction is checked. Data after sampling process is converted to the original dataset form by reversing the encoding and reversing the logarthmic transformation.
 
-![download](https://github.com/user-attachments/assets/8e9ff421-70bc-4969-9578-9e53b0481e63)
+![download](https://github.com/user-attachments/assets/484a228b-5270-4e7a-987b-0bfbc23b91f9)
 
 
 <a name="save"></a>**SAVING THE MODEL**
