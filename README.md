@@ -141,9 +141,13 @@ Random Forest Classifier is selected as the preferred model for the problem.
 
 <a name="pipe"></a>**PIPELINING THE MODEL**:
 Following pipelining steps are implemented.
+
 Numerical columns--->IQR normalisation--->logarithmic transformation--->to form new dataset
+
 Categorical columns--->One hot encoding--->to form new dataset
+
 New dataset--->PCA transformation--->Standard Scaling--->Random Forest Classifier
+
 The pipeline is trained with data and prediction is checked. Data after sampling process is converted to the original dataset form by reversing the encoding and reversing the logarthmic transformation.
 
 ![download](https://github.com/user-attachments/assets/484a228b-5270-4e7a-987b-0bfbc23b91f9)
